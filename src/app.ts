@@ -1,7 +1,7 @@
 import * as express  from 'express';
 import * as jwt from 'express-jwt';
 import { ApolloServer } from 'apollo-server-express';
-import { sequelize, User, Company } from './models';
+import { sequelize } from './models';
 import { ENV } from './config';
 
 import { resolver as resolvers, schema } from './graphql';
@@ -20,7 +20,6 @@ const server = new ApolloServer({
     resolvers,
     playground: true,
     context: ({ req }) => {
-        console.log(req.user, 'test 1');
         return {
             [EXPECTED_OPTIONS_KEY]: createContext(sequelize),
             user: req.user,
@@ -34,14 +33,4 @@ app.listen({ port: ENV.PORT }, async () => {
     await sequelize.sync(
         // {force: true},
     );
-    // await Company.create({name: "Demo 1"});
-    // await Company.create({name: "Deno 2"});
-    // await User.create({firstName: 'Brian', companyId:2});
-    // await User.create({firstName: 'Scott', companyId:2});
 });
-
-// const authMiddleware = jwt({
-//     secret: config.jwt_encryption,
-//     credentialsRequired: false,//important to not throw error
-// });
-// app.use(authMiddleware);

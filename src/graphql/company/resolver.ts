@@ -1,11 +1,9 @@
-import { resolver as rs } from 'graphql-sequelize';
-import { User, Company } from '../../models';
-export const resolver = {
+import { Query } from './company.query';
+import { CompanyMap } from "./company.map";
+import { Mutation } from "./company.mutation";
 
-  Query: {
-    getCompany: rs(Company)
-  },
-  Company: {
-    users: rs(Company.associations.users)
-  }
+export const resolver = {
+  Query: Query,
+  Company: CompanyMap,
+  Mutation: Mutation,
 };

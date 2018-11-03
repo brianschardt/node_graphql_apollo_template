@@ -1,1 +1,1 @@
-## Graphql Template for Typescript
+## Node Graphql Apollo Template for Typescript
