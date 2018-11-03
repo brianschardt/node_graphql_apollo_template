@@ -1,0 +1,24 @@
+type User {
+  id: Int
+  email: String
+  firstName: String
+  lastName: String
+  company: Company
+  jwt: String
+}
+
+input UserInput {
+    email: String
+    password: String
+    firstName: String
+    lastName: String
+}
+
+type Query {
+   getUser: User
+   loginUser(email: String!, password: String!): User
+}
+
+type Mutation {
+   createUser(data: UserInput): User
+}

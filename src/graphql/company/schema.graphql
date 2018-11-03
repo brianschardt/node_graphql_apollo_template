@@ -1,0 +1,13 @@
+type Company {
+  id: Int
+  name: String
+  users: [User]
+}
+
+input CompanyWhere {
+  id: Int
+}
+
+type Query {
+   getCompany(where: CompanyWhere, limit: Int, offset: Int): Company
+}
