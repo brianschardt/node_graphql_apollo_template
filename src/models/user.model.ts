@@ -68,7 +68,7 @@ export class User extends Model<User> {
   };
 
   getJwt(){
-      return jsonwebtoken.sign({
+      return 'Bearer ' + jsonwebtoken.sign({
           id: this.id,
       }, ENV.JWT_ENCRYPTION, { expiresIn: ENV.JWT_EXPIRATION });
   }
