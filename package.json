@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node ./src/app.ts",
-    "start:watch": "nodemon --exec 'ts-node' ./src/app.ts"
+    "start:watch": "nodemon --exec 'ts-node' ./src/app.ts",
+    "db:migrate": "node_modules/.bin/sequelize db:migrate"
   },
   "author": "",
   "license": "ISC",
