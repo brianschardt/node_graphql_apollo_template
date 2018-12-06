@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6", "esnext"],
+    "lib": ["es6", "dom", "esnext.asynciterable"],
     "module": "commonjs",
-    "moduleResolution": "node",
+    "noImplicitReturns": false,
+    "outDir": "dist",
     "sourceMap": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": false,
-    "outDir": "dist",
-    "typeRoots": ["node_modules/@types"]
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017"
   },
-  "files": ["src/app.ts"],
-  "exclude": ["node_modules"]
+  "compileOnSave": true,
+  "include": ["src"]
 }
