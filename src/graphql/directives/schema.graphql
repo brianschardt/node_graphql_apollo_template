@@ -1,0 +1,3 @@
+directive @isAuth on QUERY | MUTATION | FIELD_DEFINITION
+directive @isAuthUser on QUERY | MUTATION | FIELD_DEFINITION
+directive @upper on QUERY | FIELD | FIELD_DEFINITION

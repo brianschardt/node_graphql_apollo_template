@@ -4,7 +4,7 @@ type User {
   firstName: String
   lastName: String
   company: Company
-  jwt: String
+  jwt: String @isAuthUser
 }
 
 input UserInput {
@@ -15,7 +15,7 @@ input UserInput {
 }
 
 type Query {
-   getUser: User
+   getUser: User @isAuth
    loginUser(email: String!, password: String!): User
 }
 

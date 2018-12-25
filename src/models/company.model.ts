@@ -1,11 +1,9 @@
-import { Table, Column, Model, HasMany,  PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Table, Column, Model, HasMany } from 'sequelize-typescript';
 import { User } from './user.model'
 @Table({timestamps: true})
 export class Company extends Model<Company> {
 
-  @PrimaryKey
-  @AutoIncrement
-  @Column
+  @Column({primaryKey: true, autoIncrement: true})
   id: number;
 
   @Column

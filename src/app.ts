@@ -4,7 +4,7 @@ import { ApolloServer } from 'apollo-server-express';
 import { sequelize } from './models';
 import { ENV } from './config';
 
-import { resolver as resolvers, schema } from './graphql';
+import { resolver as resolvers, schema, schemaDirectives } from './graphql';
 import { createContext, EXPECTED_OPTIONS_KEY } from 'dataloader-sequelize';
 import to from 'await-to-js';
 
@@ -28,6 +28,7 @@ app.use(function (err, req, res, next) {
 const server = new ApolloServer({
     typeDefs: schema,
     resolvers,
+    schemaDirectives,
     playground: true,
     context: ({ req }) => {
         return {

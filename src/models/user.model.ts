@@ -1,4 +1,4 @@
-import { Table, Column, Model, HasMany,  PrimaryKey, AutoIncrement, BelongsTo, ForeignKey, BeforeSave } from 'sequelize-typescript';
+import { Table, Column, Model, HasMany, BelongsTo, ForeignKey, BeforeSave } from 'sequelize-typescript';
 import { Company } from "./company.model";
 import * as bcrypt from 'bcrypt';
 import to from 'await-to-js';
@@ -7,9 +7,8 @@ import { ENV } from '../config';
 
 @Table({timestamps: true})
 export class User extends Model<User> {
-  @PrimaryKey
-  @AutoIncrement
-  @Column
+
+  @Column({primaryKey: true, autoIncrement: true})
   id: number;
 
   @Column
@@ -18,7 +17,7 @@ export class User extends Model<User> {
   @Column
   lastName: string;
 
-  @Column
+  @Column({unique: true})
   email: string;
 
   @Column

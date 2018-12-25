@@ -8,10 +8,9 @@ export const Query = {
             if(!user){
               throw new Error('User not authenticated');
             }
-            return findOptions.where = {id: user.id}
+            return findOptions.where = {id: user.id};
         },
         after: (user) => {
-            user.jwt = user.getJwt();
             return user;
         }
     }),
