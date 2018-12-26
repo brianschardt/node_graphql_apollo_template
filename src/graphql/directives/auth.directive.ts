@@ -5,11 +5,11 @@ export class IsAuthUserDirective extends SchemaDirectiveVisitor {
   visitFieldDefinition(field) {
     const { resolve = defaultFieldResolver } = field;
     field.resolve = async function (...args) {
-      const result = await resolve.apply(this, args);
 
       let authUser, user;
       [user, {}, {authUser}] = args;
       if ((authUser && authUser.id === user.id) || user.login) {
+        const result = await resolve.apply(this, args);
         return result;
       } else {
         throw new Error('You must be the authenticated user to get this information');
