@@ -30,6 +30,8 @@ export class User extends Model<User> {
   @BelongsTo(() => Company)
   company: Company;
 
+  jwt: string;
+  login: boolean;
   @BeforeSave
   static async hashPassword(user: User) {
     let err;

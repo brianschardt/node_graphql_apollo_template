@@ -5,9 +5,6 @@ import to from 'await-to-js';
 export const Query = {
     getUser: resolver(User, {
         before: async (findOptions, {}, {user}) => {
-            if(!user){
-              throw new Error('User not authenticated');
-            }
             return findOptions.where = {id: user.id};
         },
         after: (user) => {
@@ -26,7 +23,7 @@ export const Query = {
               throw new Error(err);
             }
 
-            user.jwt = user.getJwt();
+            user.login = true;//to let the directive know to that this user is authenticated without an authorization header
             return user;
         }
     }),
