@@ -11,10 +11,10 @@ export const Mutation = {
           throw err;
         }
         findOptions.where = { id:user.id };
-        return findOptions
+        return findOptions;
       },
       after: (user) => {
-        user.jwt = user.getJwt();
+        user.login = true;
         return user;
       }
     }),
