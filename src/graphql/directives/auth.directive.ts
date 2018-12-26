@@ -3,7 +3,9 @@ import { defaultFieldResolver } from "graphql";
 
 export class IsAuthUserDirective extends SchemaDirectiveVisitor {
   visitFieldDefinition(field) {
-    const { resolve = defaultFieldResolver } = field;
+    const { resolve = defaultFieldResolver } = field;//This is confusing javascript syntax here is a link that describes what is going on: https://javascript.info/destructuring-assignment
+
+    console.log(resolve);
     field.resolve = async function (...args) {
 
       let authUser, user;
