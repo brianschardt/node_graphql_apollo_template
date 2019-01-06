@@ -3,6 +3,7 @@ import { ENV } from '../config/env.config';
 
 export const sequelize = new Sequelize({
         database: ENV.DB_NAME,
+        port: +ENV.DB_PORT,
         dialect: ENV.DB_DIALECT,
         username: ENV.DB_USER,
         password: ENV.DB_PASSWORD,
