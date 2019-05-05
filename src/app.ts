@@ -31,9 +31,11 @@ const server = new ApolloServer({
     schemaDirectives,
     playground: true,
     context: ({ req }) => {
+        let nreq = <any> req;
+        let user = nreq.user;
         return {
             [EXPECTED_OPTIONS_KEY]: createContext(sequelize),
-            user: req.user,
+            user: user,
         };
     }
 });
